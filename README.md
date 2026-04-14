@@ -2,10 +2,10 @@
 College Assignment
 
 
-Anime Wallpaper Shop 
+*Anime Wallpaper Shop 
 Welcome to the Anime Wallpaper Shop, a dynamic web application designed for browsing and purchasing high-quality anime backgrounds.
 
- Technologies
+*Technologies
 The project was built using a modern stack to ensure a dynamic and visually appealing user experience:
 
 PHP – Server-side logic and session management.
@@ -18,7 +18,7 @@ Google Fonts – Integrated typography (Kavoon & Montserrat) to match the anime 
 
 XAMPP – Local development environment.
 
-Architecture
+*Architecture
 The application follows a layered architecture to ensure a clear separation of concerns:
 
 Presentation Layer: HTML5/CSS3 files for the user interface.
@@ -27,7 +27,7 @@ Application Logic: PHP scripts managing user authentication and the shopping car
 
 Data Access: MySQLi connection for database communication.
 
-Project Structure & Presentation
+*Project Structure & Presentation
 The code is organized into specific modules:
 
 db.php: Database connection core.
@@ -40,7 +40,7 @@ cart.php: Shopping cart logic and total calculations.
 
 style.css: Complete visual styling and layout.
 
-How to Run
+*How to Run
 Clone this repository to your xampp/htdocs folder.
 
 Import the provided .sql file into your phpMyAdmin.

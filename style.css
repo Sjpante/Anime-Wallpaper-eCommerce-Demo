@@ -1,0 +1,310 @@
+/* ==========================================================================
+   1. Globals
+   ========================================================================== */
+
+body {
+  font-family: "Kavoon", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0; 
+  color: #333; 
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Σπρώχνει την εικόνα πίσω απ το κείμενο */
+  
+  background-image: url("images/bg.jpg"); /* Δίνει ένα πολύ απαλό γκρι χρώμα στο φόντο όλης της σελίδας */
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-attachment: fixed; 
+  background-position: center;  /* Keeps the best part of the image in the middle */
+  opacity: 0.3;
+  z-index: index -1; 
+
+}
+
+/*------------ H tags------------*/
+
+h1, h2, h3 {color: #9d0f1d;}
+h4 {color: #000000;}
+
+h1 {font-size: 3rem;}
+
+h2 {font-size: 2.5rem;}
+
+h3 {font-size: 1.5rem;}
+
+h4 {font-size: 1.25rem;}
+
+/*------------- Links ------------*/
+
+a {
+  color: #9d0f1d; 
+  text-decoration: none; 
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+a:hover {text-decoration: underline;}
+
+/* ==========================================================================
+   2. ΠΕΡΙΟΧΗ ΚΕΦΑΛΙΔΑΣ (HEADER & MENU)
+   ========================================================================== */
+
+.header {
+  display: grid; /* Δημιουργεί 3 στήλες */
+  grid-template-columns: 1fr auto 1fr; 
+  align-items: center;
+  background-color: #3f3f3f17;
+  border-style: solid;
+  border-color: #9d0f1dc2;
+  border-width: 0px 0px 3px 0px;
+  margin-bottom: 30px; 
+  padding: 20px; 
+}
+
+
+.logo-link {
+  grid-column: 1; 
+  text-decoration: none; /* Αφαιρεί τυχόν υπογραμμίσεις */
+  display: block;        /* Κάνει όλη την περιοχή κλικαρίσιμη */
+  width: fit-content;    /* Περιορίζει το κλικ μόνο γύρω από το logo */
+}
+
+.logo {
+  /* Αφαιρούμε το grid-column από εδώ γιατί το έχει πλέον ο πατέρας του (logo-link) */
+  background-image: url("images/Anime\ logo\ .png");
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  height: 100px; 
+  width: 100px; 
+  margin-left: 100px;
+  cursor: pointer; /* Αλλάζει τον κέρσορα σε χεράκι για να φαίνεται ότι πατιέται */
+  border-radius: 8px;
+  border-style: solid;
+  border-color: #9d0f1d;
+  border-width: 2px;
+}
+
+
+.header h1 {
+  grid-column: 2; /* Τον αναγκάζει να κάτσει στην ακριβώς μεσαία στήλη */
+  margin: 0; 
+  text-align: center;
+  color: #000000;
+}
+
+.nav {
+  grid-column: 3; /* Αναγκάζει το μενού να πάει στην 3η (δεξιά) στήλη */
+  justify-self: end; /* Το σπρώχνει τέρμα δεξιά στην άκρη της οθόνης */
+  background-color: #ffffffec; 
+  padding: 15px; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: inline-block; /* Λέει στο κουτί: "Πιάσε μόνο όσο χώρο χρειάζεσαι, μην απλωθείς σε όλη την οθόνη" */
+  font-size: 22px;
+  border-style: solid;
+  border-color: #000000c2;
+  border-width: 3px;
+  margin-right: 100px;
+ 
+}
+
+/* ==========================================================================
+   2.5 ΠΕΡΙΟΧΗ ΚΑΤΗΓΟΡΙΑΣ (FULL WIDTH WRAPPER)
+   ========================================================================== */
+
+.category-section {
+  width: 100%;
+  background-color: #3f3f3f17;
+  margin-top: 150px;
+  border-style: solid;
+  border-color: #9d0f1dc2;
+  border-width: 3px;
+  padding-top: 100px; 
+  padding-bottom: 125px;
+  overflow: hidden; /* Το περιεχόμενο δεν βγαίνει απ' το container */
+}
+/* ==========================================================================
+   3. ΠΛΕΓΜΑ ΠΡΟΪΟΝΤΩΝ (CSS GRID)
+   ========================================================================== */
+
+.wallpaper-grid {
+  position:relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(320px, 1fr)); /* Φτιάχνει προσαρμοστικές στήλες. Τουλάχιστον 280px η καθεμία! */
+  gap: 20px; 
+  width: 100%;           
+  max-width: 1920px;    /* Το σημείο που σταματάει να πλαταίνει */
+  margin: 0px auto;
+
+}
+  /*------------ Backgound Splash------------*/
+
+.wallpaper-grid::before {
+  content: "";
+  position: absolute;
+
+  /* Μεγαλώνοντας τις τιμές μικραίνει ο χόρος που καταλαμβάνει*/
+  top: -125px;   
+  left: 0px;
+  right: 50px;
+  bottom: -75px;
+  
+  z-index: -1;
+  background-image: url("images/tear.png");
+  filter: saturation(20%);
+  filter: brightness(0%);
+  background-size: 100% 100%; 
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+}
+
+
+/* ==========================================================================
+   4. ΚΑΡΤΑ ΠΡΟΪΟΝΤΟΣ (WALLPAPER CARD)
+   ========================================================================== */
+
+.wallpaper-card {
+  background-color: #fffffff6; 
+  border-style: solid;
+  border-color:  #0f9d8fbd;
+  border-width: 3px;
+  border-radius: 10px; 
+  padding: 15px; 
+  box-shadow: 1px 1px 35px -3px #9d0f1d;
+  text-align: center; 
+  transition: transform 0.2s; /* Προετοιμάζει ένα ομαλό animation διάρκειας 0.2s για όταν η κάρτα αλλάξει μέγεθος */
+}
+
+.wallpaper-card:hover {
+  transform: scale(1.03); /* Όταν το ποντίκι πάει πάνω στην κάρτα, τη μεγεθύνει ελαφρώς κατά 3% (ομαλά λόγω transition) */
+  background-color: #000000e1; 
+  border-style: solid;
+  border-color:  #0f9d8fbd;
+  border-width: 3px;
+  border-radius: 10px; 
+
+}
+
+.wallpaper-card:hover .btn {
+  background-color:#9d0f1d; 
+  border-style: solid;
+  border-color:  #ffffffee;
+  border-width: 1px;
+  border-radius: 8px; 
+  box-shadow: 1px 1px 15px -5px #0f9d8f;
+}
+
+
+.wallpaper-card:hover h3 { color: #0f9d8f;}
+.wallpaper-card:hover h4 { color:#9d0f1d;}
+
+.wallpaper-card img {
+  width: 100%; 
+  height: 200px; 
+  object-fit: cover; /* Κόβει την εικόνα έξυπνα (crop) χωρίς να την παραμορφώνει */
+  border-style: solid;
+  border-color:  #ffffffe8;
+  border-width: 2px;
+  border-radius: 8px; 
+  box-shadow: 1px 1px 30px -5px #0000007c;
+}
+.wallpaper-card img:hover {  
+  border-style: solid;
+  border-color:  #ffffffe1;
+  border-width: 2px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 30px -5px #9d0f1d;
+}
+
+/* ==========================================================================
+   5. ΦΟΡΜΕΣ (FORMS)
+   ========================================================================== */
+
+.form-section {
+  width: 100%;
+  background-color: #3f3f3f17;
+  margin-top: 150px;
+  border-style: solid;
+  border-color: #9d0f1dc2;
+  border-width: 3px;
+  padding-top: 100px; 
+  padding-bottom: 125px;
+  overflow: hidden; 
+}
+
+.form-container {
+  background-color: #ffffffda; 
+  padding: 20px; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px; 
+  margin: 0 auto;
+  border-style: solid;
+  border-color: #9d0f1dc2;
+  border-width: 3px;
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 90%; 
+  padding: 10px; 
+  margin: 10px 0; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+}
+
+.cart-theme {
+  font-family: "Kavoon", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+
+}
+/* ==========================================================================
+   6. ΚΟΥΜΠΙΑ (BUTTONS)
+   ========================================================================== */
+
+.btn {
+  background-color:#0f9d8f; 
+  color: white; 
+  padding: 10px 15px; 
+  border-radius: 5px; 
+  cursor: pointer; /* Μετατρέπει τον δείκτη του ποντικιού σε "χεράκι" όταν περνάει από πάνω */
+  font-size: 16px; 
+  width: 100%; 
+  font-weight: bold;
+  border-style: solid;
+  border-color:  #0000009c;
+  border-width: 2px;
+  border-radius: 8px; 
+  box-shadow: 1px 1px 15px -5px #9d0f1d;
+}
+
+.btn:hover {
+text-decoration: underline  2px;
+}
+
+.btn-small {
+  width: auto; /* Ακυρώνει το "width: 100%" της κλάσης .btn. Πλέον πιάνει μόνο όσο χώρο χρειάζεται το κείμενό του */
+  margin-top: 10px; 
+}
